@@ -1,0 +1,153 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["title"] = "Main";
+    ViewData["page_name"] = "Main";
+    ViewData["username"] = Context.User.Identity.Name;
+}
+
+    <style>
+     @{
+         int i = (int)((int)ViewData["maxUsage"] - (int)ViewData["usage"]) * 392 / (int)ViewData["maxUsage"] + 392;
+     }
+        circle.chart {
+            animation: chart_anim;
+            animation-fill-mode: both;
+            animation-duration: 1.2s;
+            animation-delay: 0.2s;
+            animation-timing-function: ease-in-out;
+        }
+    
+    @@keyframes chart_anim
+    {
+        0%{ stroke-dashoffset: 785;}
+        100%{ stroke-dashoffset: @i;}
+    }
+    </style> 
+    <div class="main_content">
+        <div class="item_container flex_column container_size_2 container_align_center">
+            <h3>System usage - users online</h3>
+            <svg width="300" height="150">
+                <circle r="125" cx="150" cy="0" class="chart_back" />
+                <circle r="125" cx="150" cy="0" class="chart" />
+                @{double usagePercentage = Math.Round(((int)ViewData["usage"] * 1.0 / (int)ViewData["maxUsage"] * 100.0), 2);}
+                <text x="95" y="135" font-size="24pt" font-weight="bold" fill="#2196f3">@usagePercentage.ToString("0.00") %</text>
+            </svg>
+        </div>
+        <div class="item_container list flex_column container_size_1">
+            <h3>List of active admins</h3>
+            <ul class="list_user">
+                @{
+
+                    var Users = ViewData["activeAdmins"] as List<string>;
+                    @if (Users != null)
+                    {
+                        @foreach (var item in Users)
+                        {
+                            <li>@item</li>
+                        }
+                    }
+                }
+            </ul>
+
+        </div>
+
+        <div class="item_container flex_column container_size_1">
+            <h3>Total Users</h3>
+            <p class="info"> @ViewData["allUsers"] </p>
+        </div>
+        <div class="item_container flex_column container_size_1">
+            <h3>Total Premium Users</h3>
+            <p class="info"> @ViewData["allUsersPremium"] </p>
+        </div>
+        <div class="item_container flex_column container_size_1">
+            <h3>Total Admins</h3>
+            <p class="info"> @ViewData["allAdmins"] </p>
+        </div>
+
+        <div class="item_container flex_column container_size_2 container_align_center">
+            <h3>Login Success (1h)</h3>
+            @{
+                var logins = ViewData["loginSuccess"] as List<LightenceServer.Models.ServerLogModel>;
+                var timeZones = new List<int>();
+                @for (int it = 12; it > 0; it--)
+                {
+                    timeZones.Add(logins
+                        .Where(login =>
+                            (login.Time >= DateTime.Now.AddMinutes(-5 * it)) &&
+                            (login.Time < DateTime.Now.AddMinutes(-5 * (it - 1))))
+                        .Count());
+                }
+
+                int maxValue = timeZones.Max();
+
+                <svg width="465" height="250">
+                    <line x1="35" x2="460" y1="200" y2="200" style="stroke:#383f51; stroke-width:2"></line>
+                    <line x1="35" x2="460" y1="50" y2="50" style="stroke:#383f51; stroke-width:1"></line>
+                    <line x1="35" x2="460" y1="100" y2="100" style="stroke:#383f51; stroke-width:1"></line>
+                    <line x1="35" x2="460" y1="150" y2="150" style="stroke:#383f51; stroke-width:1"></line>
+                    <text x="33" y="55" text-anchor="end" fill="#383f51">@maxValue</text>
+
+                    <text x="33" y="205" text-anchor="end" fill="#383f51" font-weight="bold">0</text>
+                    @for (int it = 0; it < 12; it++)
+                    {
+                        var y = (int)(timeZones[it] * 1.0f / maxValue * 150);
+                        var height = (int)(timeZones[it] * 1.0f / maxValue * 150);
+
+                        <rect x="45" y="calc(200px - @y*1px)" width="20" height="calc(@height*1px - 1px)" class="bar_chart" style="transform:translateX(calc(35px*@it))"></rect>
+                    }
+                </svg>
+            }
+
+        </div>
+
+        <div class="item_container flex_column container_size_1 list">
+            <h3>Active rooms</h3>
+            <p class="info"> @ViewData["activeRooms"] </p>
+        </div>
+
+        <div class="item_container flex_column container_size_2 container_align_center">
+            <h3>Login Failed (1h)</h3>
+            @{
+                var logins2 = ViewData["loginError"] as List<LightenceServer.Models.ServerLogModel>;
+                var timeZones2 = new List<int>();
+                @for (int it = 12; it > 0; it--)
+                {
+                    timeZones2.Add(logins2
+                        .Where(login =>
+                            (login.Time >= DateTime.Now.AddMinutes(-5 * it)) &&
+                            (login.Time < DateTime.Now.AddMinutes(-5 * (it - 1))))
+                        .Count());
+                }
+
+                int maxValue2 = timeZones2.Max();
+
+                <svg width="465" height="250">
+                    <line x1="35" x2="460" y1="200" y2="200" style="stroke:#383f51; stroke-width:2"></line>
+                    <line x1="35" x2="460" y1="50" y2="50" style="stroke:#383f51; stroke-width:1"></line>
+                    <line x1="35" x2="460" y1="100" y2="100" style="stroke:#383f51; stroke-width:1"></line>
+                    <line x1="35" x2="460" y1="150" y2="150" style="stroke:#383f51; stroke-width:1"></line>
+                    <text x="33" y="55" text-anchor="end" fill="#383f51">@maxValue2</text>
+
+                    <text x="33" y="205" text-anchor="end" fill="#383f51" font-weight="bold">0</text>
+                    @if (maxValue2 != 0)
+                    {
+                        @for (int it = 0; it < 12; it++)
+                        {
+                            var y2 = (int)(timeZones2[it] * 1.0f / maxValue2 * 150);
+                            var height2 = (int)(timeZones2[it] * 1.0f / maxValue2 * 150);
+
+                            <rect x="45" y="calc(200px - @y2*1px)" width="20" height="calc(@height2*1px - 1px)" class="bar_chart" style="transform:translateX(calc(35px*@it))"></rect>
+                        }
+                    }
+                </svg>
+            }
+        </div>
+
+        <div class="item_container flex_column container_size_1 list">
+            <h3>Bandwidth Output</h3>
+            <p class="info"> @ViewData["bandwidthOut"] Mbit/s</p>
+        </div>
+    </div>

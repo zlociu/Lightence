@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Lightence - secure videoconferences for your business</title>
+    <link rel="icon" href="/data/lightence_logo_gradient.svg" )">
+    <meta name="author" content="Piotr Kopycki & Marcin Złotek">
+    <!--ONLY FOR TESTING - DELETE IN FINAL VERSION-->
+    <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate">
+    <!--END-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styleLightence.css">
+</head>
+<body>
+
+    <!--<div id="simplecookienotification_v01" style="display: block; z-index: 99999; min-height: 35px; width: 100%; position: fixed; background: rgb(43, 54, 67) none repeat scroll 0% 0%; border: 0px none rgb(160, 178, 192); text-align: center; right: 0px; color: rgb(119, 119, 119); bottom: 0px; left: 0px; border-radius: 0px;">
+        <div style="padding:10px; margin-left:15px; margin-right:15px; font-size:14px; font-weight:normal;">
+            <span id="simplecookienotification_v01_powiadomienie">Ta strona używa plików cookies.</span><span id="br_pc_title_html"><br></span>
+            <a id="simplecookienotification_v01_polityka" href="http://jakwylaczyccookie.pl/polityka-cookie/" style="color: rgb(160, 178, 192);">Polityka Prywatności</a><span id="br_pc2_title_html"> &nbsp;&nbsp; </span>
+            <a id="simplecookienotification_v01_info" href="http://jakwylaczyccookie.pl/jak-wylaczyc-pliki-cookies/" style="color: rgb(160, 178, 192);">Jak wyłączyć cookies?</a><span id="br_pc3_title_html"> &nbsp;&nbsp; </span>
+            <a id="simplecookienotification_v01_info2" href="https://nety.pl/cyberbezpieczenstwo" style="color: rgb(160, 178, 192);">Cyberbezpieczeństwo</a><div id="jwc_hr1" style="height: 10px; display: none;"></div>
+            <a id="okbutton" href="javascript:simplecookienotification_v01_create_cookie('simplecookienotification_v01',1,365);" style="position: absolute; background: rgb(160, 178, 192) none repeat scroll 0% 0%; color: rgb(255, 255, 255); padding: 5px 15px; text-decoration: none; font-size: 12px; font-weight: normal; border: 0px solid rgb(43, 54, 67); border-radius: 5px; top: 5px; right: 5px;">AKCEPTUJĘ</a><div id="jwc_hr2" style="height: 10px; display: none;"></div>
+        </div>
+    </div>
+    <script type="text/javascript">var galTable= new Array(); var galx = 0;</script>
+    <script type="text/javascript"> 
+        function simplecookienotification_v01_create_cookie(name, value, days)
+        {
+        if (days)
+        {
+             var date = new Date(); date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); var expires = "; expires=" + date.toGMTString();
+        }
+        else var expires = "";
+        document.cookie = name + "=" + value + expires + "; path=/";
+        document.getElementById("simplecookienotification_v01").style.display = "none";
+        }
+
+        function simplecookienotification_v01_read_cookie(name)
+        {
+            var nameEQ = name + "="; var ca = document.cookie.split(";");
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i]; while (c.charAt(0) == " ") c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            } return null;
+        }
+        var simplecookienotification_v01_jest = simplecookienotification_v01_read_cookie("simplecookienotification_v01");
+        if (simplecookienotification_v01_jest == 1)
+        {
+            document.getElementById("simplecookienotification_v01").style.display = "none";
+        }
+    </script>-->
+
+    <script>
+        var sticky;
+        var main_;
+        window.onscroll = function () { myFunction() };
+        window.onload = function () {
+            main_ = document.getElementById("main-div");
+            sticky = main_.offsetTop;
+        }
+
+        function myFunction() {
+            console.log(sticky);
+            if (window.pageYOffset > sticky && window.screen.width > 800) {
+                document.getElementById("sticky_header").style.display = "flex";
+            } else {
+                document.getElementById("sticky_header").style.display = "none";
+            }
+        }
+    </script>
+
+    <div class="header">
+
+        <div class="header-menubar">
+            <div class="header-logo">
+                <img src="data/Lightence_string_gradient_invert.svg" style="width: 200pt;">
+            </div>
+            <div class="header-nav">
+                <a class="menu-link" href="./Index.html">Home</a>
+                <!--
+                -->
+                <a class="menu-link" href="./Pricing.html">Pricing</a>
+                <!--
+                -->
+                <a class="menu-link" href="#download">Download</a>
+                <!--
+                -->
+                <a class="menu-link" href="#contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="header-content">
+            <div style="font-size: 22pt; font-weight: bold; font-family: sans-serif; color: white; margin-top:70pt; margin-bottom: 18pt">Your best choice!</div>
+            <div style="font-size: 13pt; font-family: sans-serif; color: white;">First most secure videoconference app prepared for bussiness</div>
+            <div class="header-content-buttons">
+                <div class="button button-dark">
+                    <a href="#about">Read more</a>
+                </div>
+                <div style="width: 20pt; min-height:20pt"></div>
+                <div class="button button-light">
+                    <a href="#download">Download</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="sticky_header" class="header-menubar" style="background-color:#383f51; height:55pt; position:sticky; top:0; display:none" >
+        <div class="header-logo">
+            <img src="data/Lightence_string_gradient_invert.svg" style="width: 200pt;">
+        </div>
+        <div class="header-nav">
+            <a class="menu-link" href="./Index.html">Home</a><!--
+        --><a class="menu-link" href="./Pricing.html">Pricing</a><!--
+        --><a class="menu-link" href="#download">Download</a><!--
+        --><a class="menu-link" href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <div id="main-div" class="main">
+
+        <div class="text-section" style="padding-top:110pt">
+            <div class="sectionTitle" id="about">Lightence</div>
+            <div class="text allline">
+                Lightence is modern videoconference system, focused on security and intuitiveness.
+                When You need safe and secure method to communicate with people, send important files, Lightence is here!
+            </div>
+            <!--<div class="image"><img src="data/call-center-agent.svg" width="7%" height="7%" /></div>-->
+        </div>
+
+        <div style="fill: #e1f5fe">
+            <svg viewBox="0 0 1000 70" xmlns="http://www.w3.org/2000/svg" style="display: block">
+                <polygon points="0,0 330,47 670,23 1000,70 0,70" />
+            </svg>
+        </div>
+
+        <div class="feature-background">
+            <div class="feature-section">
+                <div class="sectionTitle">
+                    New well designed and intuitive interface
+                </div>
+                <div class="feature-container">
+                    <img src="data/availability_icon.svg" style="height:170pt; " />
+                    <div class="text">
+                        Bored with one and the same, repetetive layout in most of the top popular communicators? We offer new and
+                        fresh but still intuitive and simple interface. No settings or features You will never use.
+                        Now available for Windows PC and Linux.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="fill: #e1f5fe">
+            <svg viewBox="0 0 1000 70" xmlns="http://www.w3.org/2000/svg" style="display: block">
+                <polygon points="0,0 330,47 670,23 1000,70 1000,0" />
+            </svg>
+        </div>
+
+        <div class="feature-section">
+            <div class="sectionTitle">
+                Convenient and safe biometric authentication
+            </div>
+            <div class="feature-container">
+                <div class="text">
+                    Biometric authentication, available for everyone for free, takes the safety to next level. Biometrics
+                    simplifies and speeds up the login process. Why would you need to remember a difficult and long password, if
+                    you can just use the camera, which you will use in a meeting anyway.
+                </div>
+                <img src="data/biometric_icon.svg" style="height:170pt; " />
+            </div>
+        </div>
+
+        <div style="fill: #e1f5fe">
+            <svg viewBox="0 0 1000 70" xmlns="http://www.w3.org/2000/svg" style="display: block">
+                <polygon points="0,0 330,47 670,23 1000,70 0,70" />
+            </svg>
+        </div>
+
+        <div class="feature-background">
+            <div class="feature-section">
+                <div class="sectionTitle">
+                    Your safety and privacy matters
+                </div>
+                <div class="feature-container">
+                    <img src="data/shield.svg" style="height:170pt;" />
+                    <div class="text">
+                        Sefety is most important. That's why all connections are encrypted*, ensuring that nobody can read data
+                        without knowledge. In terms of privacy, you can be sure that all data collected during the meeting will
+                        disappear at the end of this meeting. Nobody will steal your contacts, groups, sent messages or shared
+                        files because our servers simply do not store any of these. The only thing we know about you is your
+                        data provided in the registration process.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="fill: #e1f5fe">
+            <svg viewBox="0 0 1000 70" xmlns="http://www.w3.org/2000/svg" style="display: block">
+                <polygon points="0,0 330,47 670,23 1000,70 1000,0" />
+            </svg>
+        </div>
+
+        <div class="feature-section">
+            <div class="sectionTitle">
+                Free version without time limit
+            </div>
+            <div class="feature-container">
+                <div class="text">
+                    You can get it all for free and for an unlimited time! Free version has many features, which help You connect
+                    with people. Creating accounts and secure meetings will be always FREE**. With Lightence You can increase the
+                    efficiency of Your work or study.
+                </div>
+                <img src="data/business_icon.svg" style="height:170pt; " />
+            </div>
+        </div>
+
+        <div style="fill: #e1f5fe">
+            <svg viewBox="0 0 1000 70" xmlns="http://www.w3.org/2000/svg" style="display: block">
+                <polygon points="0,0 330,47 670,23 1000,70 0,70" />
+            </svg>
+        </div>
+
+        <div class="download-background">
+            <div class="download-section">
+                <div class="sectionTitle">
+                    Increase the security of your business now!
+                </div>
+                <div class="text allline">
+                    Safety are important in business. Lightence ensure high level of privacy, without loosing performance.
+                </div>
+                <div style="height: 60pt"></div>
+                <div class="download-subsection">
+                    <div class="sectionTitle">
+                        Download
+                    </div>
+                    <div class=" button button-blue" id="download">
+                        <a href="#download">Download for Windows PC</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-infoBox">
+                <div class="footer-logo">
+                    <img src="data/Lightence_string_gradient_invert.svg" style="width: 100%">
+                </div>
+                <div class="footer-header">
+                    Secure videoconferences
+                </div>
+            </div>
+
+            <div style="width: 10pt" id="footerDivider">
+                <svg width="5" height="170">
+                    <line x1="2" x2="2" y1="0" y2="100%" style="stroke:#e1f5fe; stroke-width:3" />
+                </svg>
+            </div>
+            <div class="footer-routeContainer">
+                <div class="footer-routeSection">
+                    <div class="footer-routeTitle">
+                        About
+                    </div>
+                    <div class="footer-routeNav">
+                        <a class="footer-link" href="#about">Why Lightence</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#features">Features</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#security">Security</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#download">Download</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#development">Development</a>
+                    </div>
+                </div>
+
+                <div class="footer-routeSection">
+                    <div class="footer-routeTitle">
+                        Team
+                    </div>
+                    <div class="footer-routeNav">
+                        <a class="footer-link" href="#aboutus">About us</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#projects">Projects</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#careers">Careers</a>
+                    </div>
+                </div>
+
+                <div class="footer-routeSection">
+                    <div class="footer-routeTitle">
+                        Pricing
+                    </div>
+                    <div class="footer-routeNav">
+                        <a class="footer-link" href="#free">Free</a><!--
+                        --><a class="footer-link" href="#premium">Premium</a><!--
+                        --><a class="footer-link" href="#premium">Ultimate</a>
+                    </div>
+                </div>
+
+                <div class="footer-routeSection">
+                    <div class="footer-routeTitle">
+                        Help
+                    </div>
+                    <div class="footer-routeNav">
+                        <a class="footer-link" href="#support">Support</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#blog">Blog</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#documentation">Documentation</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#community">Community</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+</body>
+</html>

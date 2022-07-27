@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["title"] - Admin Panel</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/styleAdmin.css")" />
+    <link rel="icon" href="@Url.Content("~/data/lightence_logo_gradient.svg")">
+</head>
+<body >
+    <div style="width: 100%; background-color: #383f51 ">
+        <div class="header">
+            <div class="header_lightence">
+                <img src="@Url.Content("~/data/Lightence_string_gradient.svg")" height="38"/>
+            </div>
+            @if (ViewData["username"] != null)
+            {
+                <div class="header_welcome">
+                    Welcome
+                </div>
+                <div class="header_username">
+                    @ViewData["username"]  &#9660
+                    <ul class="header_arrow_menu">
+                        <li><a href="/Admin/Main"> Main </a></li>
+                        <li><a href="/Admin/ManageUser"> Manage Users </a></li>
+                        <li><a href="/Admin/ManageAdmin"> Manage Admin </a></li>
+                    </ul>
+                </div>
+                <div class="header_logout">
+                    <a href="/Admin/Logout"> Logout </a>
+                </div>
+            }
+            else
+            {
+                <div style="width:55%"></div>
+            }
+        </div>
+    </div>
+    
+    <div class="main_frame">
+        <div class="main flex_column">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="footer">
+        <p > Lightence<sup>&reg</sup>, 2020</p>
+    </div>
+</body>
+</html>

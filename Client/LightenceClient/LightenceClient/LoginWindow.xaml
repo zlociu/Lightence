@@ -1,0 +1,48 @@
+﻿<Window x:Class="LightenceClient.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:LightenceClient"
+        mc:Ignorable="d"
+        Background="#f7f7ff"
+        MouseDown="Window_MouseDown"
+        Title="Login" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+
+        <Rectangle Height="280" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5 1" StartPoint="0.5 0">
+                    <GradientStop Color="#0d47a1"/>
+                    <GradientStop Color="#2196f3" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Image Source="Images/LightenceLogo.png" Height="100" Width="100" VerticalAlignment="Top" Margin="125,30,125,0"/>
+        <materialDesign:PackIcon Kind="CloseThick" Width="20" Height="20" HorizontalAlignment="Right" Foreground="#f7f7ff" Margin="3 3" />
+        <Button Height="20" Width="20" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Margin="3 3" Click="Close_Button_Click"/>
+
+
+        <Rectangle Width="280" Height="220" Fill="#f7f7ff" VerticalAlignment="Bottom" Margin="0 , 120" RadiusX="22" RadiusY="22">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#FFE1F5FE" RenderingBias="Quality" BlurRadius="15" ShadowDepth="1"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid Width="280" Height="220" VerticalAlignment="Bottom" Margin="0,120">
+            <TextBlock Text="Login to Lightence" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15" Foreground="#383f51" FontSize="24" />
+            <StackPanel VerticalAlignment="Center" Margin="10">
+                <TextBox materialDesign:HintAssist.Hint="Email address" Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="EmailField" FontSize="16" Margin="0,0,0,0" FontWeight="Normal" Width="240"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" x:Name="PasswordField" FontSize="16" Margin="0,5,0,0" FontWeight="Normal" Width="240" Cursor="IBeam"/>
+
+            </StackPanel>
+        </Grid>
+        <TextBlock Width="280" Margin="0, 155" TextAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Center" x:Name="ErrorMsgBlock" Foreground="Red"></TextBlock>
+        <Button VerticalAlignment="Bottom" Margin="0,105,0,103" Width="140" Content="Login" Background="#2196f3" Foreground="#f7f7ff" x:Name="LoginButton" Click="LoginButton_Click" FontSize="16" Height="36" Cursor="Hand"></Button>
+        <TextBlock x:Name="RegisterHiperlink" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Margin="0 60">Don't have account yet? <Hyperlink Click="RegisterHyperlink_Click">Sign up for free</Hyperlink></TextBlock>
+        <TextBlock x:Name="ResetPassHiperlink" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Margin="0,30"><Run Text="Frogot Password ? "/><Hyperlink Click="ForgotPassHyperlink_Click"><Run Text="Reset password"/></Hyperlink></TextBlock>
+        <Button x:Name="FaceLoginButton" HorizontalAlignment="Right" Margin="0,0,30,103" VerticalAlignment="Bottom" Width="40" Height="36" Padding="0" Click="FaceLoginButton_Click">
+            <materialDesign:PackIcon Kind="FaceRecognition" Width="25" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Button>
+    </Grid>
+</Window>

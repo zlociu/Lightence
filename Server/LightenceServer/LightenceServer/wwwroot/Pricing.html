@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Lightence - secure videoconferences for your business</title>
+    <link rel="icon" href="/data/lightence_logo_gradient.svg" )">
+    <meta name="author" content="Piotr Kopycki & Marcin Złotek">
+    <!--ONLY FOR TESTIN - DELETE IN FINAL VERSION-->
+    <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate">
+    <!--END-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styleLightence.css">
+</head>
+<body>
+    <script>
+        var sticky;
+        var main_;
+        window.onscroll = function () { myFunction() };
+        window.onload = function () {
+            main_ = document.getElementById("main-div");
+            sticky = main_.offsetTop;
+        }
+
+        function myFunction() {
+            if (window.pageYOffset > sticky && window.screen.width > 800) {
+                document.getElementById("sticky_header").style.display = "flex";
+            } else {
+                document.getElementById("sticky_header").style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        var current_price = 1;
+
+        function nextPrice() {
+            document.getElementById("button_price_" + current_price).classList.remove("current");
+            document.getElementById("tab_price_" + current_price).style.display = "none";
+            current_price = current_price + 1;
+            if (current_price > 3) current_price = 1;
+            document.getElementById("button_price_" + current_price).classList.add("current");
+            document.getElementById("tab_price_" + current_price).style.display = "flex";
+        }
+
+        function prevoiusPrice() {
+            document.getElementById("button_price_" + current_price).classList.remove("current");
+            document.getElementById("tab_price_" + current_price).style.display = "none";
+            current_price = current_price - 1;
+            if (current_price < 1) current_price = 3;
+            document.getElementById("button_price_" + current_price).classList.add("current");
+            document.getElementById("tab_price_" + current_price).style.display = "flex";
+        }
+    </script>
+
+    <div class="header">
+
+        <div class="header-menubar">
+            <div class="header-logo">
+                <img src="data/Lightence_string_gradient_invert.svg" style="width: 200pt;">
+            </div>
+            <div class="header-nav">
+                <a class="menu-link" href="./Index.html">Home</a>
+                <!--
+                -->
+                <a class="menu-link" href="#pricing">Pricing</a>
+                <!--
+                -->
+                <a class="menu-link" href="#download">Download</a>
+                <!--
+                -->
+                <a class="menu-link" href="#contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="header-content">
+            <div style="font-size: 22pt; font-weight: bold; font-family: sans-serif; color: white; margin-top:70pt; margin-bottom: 18pt">Find the best solution</div>
+            <div style="font-size: 13pt; font-family: sans-serif; color: white;">Compare versions, get Your app and discover new horizons.</div>
+            <div class="header-content-buttons" style="display:block">
+                <div class="button button-light">
+                    <a href="#comparison">Read about</a>
+                </div>
+                <div style="width: 20pt"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="sticky_header" class="header-menubar" style="background-color:#383f51; height:55pt; position:sticky; top:0;display:none">
+        <div class="header-logo">
+            <img src="data/Lightence_string_gradient_invert.svg" style="width: 200pt;">
+        </div>
+        <div class="header-nav">
+            <a class="menu-link" href="./Index.html">Home</a><!--
+            --><a class="menu-link" href="./Pricing.html">Pricing</a><!--
+            --><a class="menu-link" href="#download">Download</a><!--
+            --><a class="menu-link" href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <div id="main-div" class="main">
+
+        <div class="text-section" style="padding-top:110pt">
+            <div class="sectionTitle" id="comparison">Compare & Choose </div>
+            <div class="button-tab">
+                <button class="previous-column" onclick="prevoiusPrice()">&#60;</button>
+                <div>
+                    <button id="button_price_1" class="current"></button>
+                    <button id="button_price_2" class=""></button>
+                    <button id="button_price_3" class=""></button>
+                </div>
+                <button class="next-column" onclick="nextPrice()">&#62;</button>
+            </div>
+            <div class="price-table">
+                <div class="price-table-column-info">
+                    <div style="height:100pt"></div>
+                    <div>Max participants</div>
+                    <div>Max files shared</div>
+                    <div>Meeting with password protection</div>
+                    <div>Can disable auto-end meeting</div>
+                    <div>Anonymous meeting</div>
+                    <div><b>And much more ...</b></div>
+                </div>
+                <div id="tab_price_1" class="price-table-column">
+                    <div class="price-table-column-header">Normal</div>
+                    <div class="price-table-column-price">FREE</div>
+                    <div>7</div>
+                    <div>3</div>
+                    <div style="color:red">&#x2716;</div>
+                    <div style="color:red">&#x2716;</div>
+                    <div style="color:red">&#x2716;</div>
+                    <div></div>
+                </div>
+                <div id="tab_price_2" class="price-table-column" style="display:none">
+                    <div class="price-table-column-header-blue">Premium</div>
+                    <div class="price-table-column-price"><p style="text-decoration-line: line-through; text-decoration-thickness:2px; margin-right:7pt">$ 23.99</p> <p>$ 17.99</p></div>
+                    <div>13 </div>
+                    <div>7</div>
+                    <div style="color:#20fc8f">&#x2714;</div>
+                    <div style="color:#20fc8f">&#x2714;</div>
+                    <div style="color:red">&#x2716;</div>
+                    <div></div>
+                </div>
+                <div id="tab_price_3"  class="price-table-column" style="display:none">
+                    <div class="price-table-column-header-ultimate">Ultimate</div>
+                    <div class="price-table-column-price">$ --.--</div>
+                    <div>30</div>
+                    <div>20</div>
+                    <div style="color:#20fc8f">&#x2714;</div>
+                    <div style="color:#20fc8f">&#x2714;</div>
+                    <div style="color:#20fc8f">&#x2714;</div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="fill: #e1f5fe">
+            <svg viewBox="0 0 1000 70" xmlns="http://www.w3.org/2000/svg" style="display: block">
+                <polygon points="0,0 330,47 670,23 1000,70 0,70" />
+            </svg>
+        </div>
+
+        <div class="download-background">
+            <div class="download-section">
+                <div class="sectionTitle">
+                    Get your premium for many users!
+                </div>
+                <div class="text allline">
+                    While buying premium for more than 5 accounts, You can get up to 10-2% discount! <br />
+                    Special pricing for education, check <a href="education_pricing" style="color:#2196f3;text-decoration:none">here</a>!
+                </div>
+                <div style="height: 60pt"></div>
+                <div class="download-subsection">
+                    <div class="sectionTitle">
+                        Buy Premium!
+                    </div>
+                    <div class=" button button-blue" id="buy">
+                        <a href="#buy">Buy Premium</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-infoBox">
+                <div class="footer-logo">
+                    <img src="data/Lightence_string_gradient_invert.svg" style="width: 100%">
+                </div>
+                <div class="footer-header">
+                    Secure videoconferences
+                </div>
+            </div>
+
+            <div style="width: 10pt" id="footerDivider">
+                <svg width="5" height="170">
+                    <line x1="2" x2="2" y1="0" y2="100%" style="stroke:#e1f5fe; stroke-width:3" />
+                </svg>
+            </div>
+            <div class="footer-routeContainer">
+                <div class="footer-routeSection">
+                    <div class="footer-routeTitle">
+                        About
+                    </div>
+                    <div class="footer-routeNav">
+                        <a class="footer-link" href="#about">Why Lightence</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#features">Features</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#security">Security</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#download">Download</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#development">Development</a>
+                    </div>
+                </div>
+
+                <div class="footer-routeSection">
+                    <div class="footer-routeTitle">
+                        Team
+                    </div>
+                    <div class="footer-routeNav">
+                        <a class="footer-link" href="#aboutus">About us</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#projects">Projects</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#careers">Careers</a>
+                    </div>
+                </div>
+
+                <div class="footer-routeSection">
+                    <div class="footer-routeTitle">
+                        Pricing
+                    </div>
+                    <div class="footer-routeNav">
+                        <a class="footer-link" href="#free">Free</a><!--
+                        --><a class="footer-link" href="#premium">Premium</a><!--
+                        --><a class="footer-link" href="#premium">Ultimate</a>
+                    </div>
+                </div>
+
+                <div class="footer-routeSection">
+                    <div class="footer-routeTitle">
+                        Help
+                    </div>
+                    <div class="footer-routeNav">
+                        <a class="footer-link" href="#support">Support</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#blog">Blog</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#documentation">Documentation</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#community">Community</a>
+                        <!--
+                        -->
+                        <a class="footer-link" href="#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+</body>
+</html>

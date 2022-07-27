@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["title"] = "Manage Admin";
+    ViewData["page_name"] = "Manage Admin";
+    ViewData["username"] = Context.User.Identity.Name;
+}
+    <h2>Manage admin accounts</h2>
+    <div class="flex_row">
+        <div class="container_size_2" style="min-width:200pt;">
+            <div style="height: 50pt;"></div>
+            <div class="form_unit">
+                @using (@Html.BeginForm("ManageAdmins", "Admin", FormMethod.Post))
+                {
+                    <div class="form_element">
+                        @Html.TextBox("username", "", null, new { Placeholder = "username", Class = "text_input"})
+                    </div>
+                    <div class="flex_column">
+                        <div class="form_element">
+                            <input type="submit" name="add" value="Add new admin" class="submit" />
+                        </div>
+                        <div class="form_element">
+                            <input type="submit" name="remove" value="Remove from admin" class="submit reverse_color" />
+                        </div>
+                    </div>
+
+                }
+            </div>
+            <div class="error_info">
+                @ViewData["error"]
+            </div>
+        </div>
+        <div class="container_size_1">
+            <h3>List of all admins</h3>
+            <ul class="list_user">
+                @{
+                    var Users = ViewData["allAdmins"] as List<string>;
+                    @if (Users != null)
+                    {
+                        @foreach (var item in Users)
+                        {
+                            <li>@item</li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+    
+
+
+
